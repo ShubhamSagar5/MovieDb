@@ -17,5 +17,5 @@ const uiSlice = createSlice({
     }
 })
 
-const {setLoading,setDarkMode} = uiSlice.actions
+export const {setLoading,setDarkMode} = uiSlice.actions
 export default uiSlice.reducer
