@@ -5,7 +5,10 @@ import { Outlet } from 'react-router-dom'
 const Home = () => {
   return (
     <div className='text-white'>
-        <Navbar/>
+        <div className='sticky top-0'>
+          <Navbar/>
+        </div>
+        
         <div className='bg-[#2E2E2E]'>
         <Outlet/>
     </div>

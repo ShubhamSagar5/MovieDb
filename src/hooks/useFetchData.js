@@ -19,13 +19,13 @@ const useFetchData = (movieAPI,movieCategory) => {
 
             switch(movieCategory){
                 case "popular" :
-                    dispatch(addPopularMovie())
+                    dispatch(addPopularMovie(data?.results))
                 break;
                 case "topRated" :
-                    dispatch(addTopRatedMovie())
+                    dispatch(addTopRatedMovie(data?.results))
                 break;
                 case "upcoming":
-                    dispatch(addUpcomingMovie())
+                    dispatch(addUpcomingMovie(data?.results))
                 break;
                 default:
                 break;
@@ -41,7 +41,7 @@ const useFetchData = (movieAPI,movieCategory) => {
 
     useEffect(()=>{
         fetchData()
-    },[movieAPI,movieCategory])
+    },[movieAPI,movieCategory,dispatch])
 
 }
 
