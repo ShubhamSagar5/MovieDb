@@ -4,9 +4,11 @@ import { Outlet } from 'react-router-dom'
 
 const Home = () => {
   return (
-    <div>
+    <div className='text-white'>
         <Navbar/>
+        <div className='bg-[#2E2E2E]'>
         <Outlet/>
+    </div>
     </div>
   )
 }
