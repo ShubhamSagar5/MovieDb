@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import MovieCard from './MovieCard';
 import { useSelector } from 'react-redux';
+import ShimmerUI from './ShimmerUI';
 
 const MovieList = ({ movieCategory }) => {
 
   const popularMovie = useSelector((store)=>store?.movie[movieCategory])
+  const loading = useSelector((store)=>store?.ui?.loading)
 
   return (
     <div className="flex flex-wrap ">
-      {popularMovie?.map((movie, index) => {
+      {!loading ? popularMovie?.map((movie) => {
         return (
-          <div key={index} className="w-full sm:w-6/12 md:w-4/12 lg:w-3/12 flex justify-center p-[2rem] mt-[1rem]">
+          <div key={movie?.id} className="w-full sm:w-6/12 md:w-4/12 lg:w-3/12 flex justify-center p-[2rem] mt-[1rem]">
             <MovieCard title={movie?.title} rating={movie?.vote_average} posterPath={movie?.poster_path}/>
           </div>
         );
-      })}
+      }) : <ShimmerUI></ShimmerUI>}
     </div>
   );
 };

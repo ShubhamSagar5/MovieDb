@@ -6,8 +6,8 @@ const MovieCard = ({title,posterPath,rating}) => {
     <div className=' text-center w-10/12 flex flex-col rounded-t-lg items-center'>
     <div className=''>
        <img src={posterBaseDomain+posterPath} alt="" className='rounded-sm'  />
-       <p>{title}</p>
-       <p>{rating}</p>
+       <p className='text-lg mt-2'>{title}</p>
+       <p>Rating : {Math.floor(rating*10)/10}</p>
     </div>
        
     </div>

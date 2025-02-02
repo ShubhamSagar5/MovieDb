@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { setLoading } from "../store/UiSlice"
 import { addPopularMovie, addTopRatedMovie, addUpcomingMovie } from "../store/MovieSlice"
 import { useEffect } from "react"
@@ -8,11 +8,13 @@ import { useEffect } from "react"
 const useFetchData = (movieAPI,movieCategory) => {
 
     const dispatch = useDispatch()
+      const {page} = useSelector((store)=>store?.pagination)
+    
 
     const fetchData = async() => {
         dispatch(setLoading(true))
         try {
-            const res = await fetch(movieAPI)
+            const res = await fetch(movieAPI+`&page=${page}`)
             const data = await res.json() 
 
             //update react-store 
@@ -41,7 +43,7 @@ const useFetchData = (movieAPI,movieCategory) => {
 
     useEffect(()=>{
         fetchData()
-    },[movieAPI,movieCategory,dispatch])
+    },[movieAPI,movieCategory,page])
 
 }
 
