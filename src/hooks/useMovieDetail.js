@@ -3,6 +3,7 @@ import { setLoading } from "../store/UiSlice"
 import { Api_key, movieDetailBaseAPI } from "../api/MovieAPI"
 import { useEffect } from "react"
 import { addCastData, addMovieDetailData } from "../store/DetailMovieSlice"
+import { setPage } from "../store/PaginationSlice"
 
 
 
@@ -24,6 +25,7 @@ const useMovieDetail = (movieId) => {
 
             dispatch(addMovieDetailData(dataMovie))
             dispatch(addCastData(dataCast))
+             dispatch(setPage(1))
         } catch (error) {
             console.log(error.message)
         }finally{

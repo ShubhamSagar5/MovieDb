@@ -1,10 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { posterBaseDomain } from '../api/MovieAPI'
+import CastDetail from './CastDetail'
 
-const MovieDetailCard = () => {
+const MovieDetail = () => {
   
-    const {movieData,castData} = useSelector((store)=>store?.detailMovie)
+    const movieData = useSelector((store)=>store?.detailMovie?.movieData)
   
     return (
     <div>
@@ -15,7 +16,7 @@ const MovieDetailCard = () => {
                               <img src={posterBaseDomain + movieData?.poster_path } alt="poster" className='h-[12rem] w-[8rem]' />
                       <div className='flex flex-col'>
                         <h2 className='text-[1.5rem] font-semibold'>{movieData?.title}</h2>
-                        <p className='text-lg text-[#065e9d]'>Rating : {movieData?.vote_average}</p>
+                        <p className='text-lg text-[#065e9d]'>Rating : {Math.floor(movieData?.vote_average*10)/10}</p>
                         <div className='flex gap-2 items-center mt-3'>
                           <div className='border border-white p-1 rounded-sm text-xs'>{movieData?.runtime} min</div>
                           <ul className='flex'>{movieData?.genres?.map((tag,index)=>{
@@ -37,11 +38,15 @@ const MovieDetailCard = () => {
               <img src={posterBaseDomain + movieData?.backdrop_path} alt="banner" className='rounded-tr-lg rounded-br-lg h-[24rem]' />
             </div>
         </div>
-        <div>
+        <div className='mt-[1rem]'>
           {/* cast */}
+          <div>
+              <p className='text-2xl font-semibold'>Cast</p>
+              <CastDetail/>
+          </div>
         </div>
     </div>
   )
 }
 
-export default MovieDetailCard
+export default MovieDetail

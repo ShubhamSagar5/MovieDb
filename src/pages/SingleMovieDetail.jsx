@@ -1,5 +1,5 @@
 import React from 'react'
-import MovieDetailCard from '../components/MovieDetailCard'
+import MovieDetail from '../components/MovieDetail'
 import { useParams } from 'react-router-dom'
 import useMovieDetail from '../hooks/useMovieDetail'
 
@@ -10,7 +10,7 @@ const SingleMovieDetail = () => {
   
   return (
     <div className='p-[1.5rem]'>
-      <MovieDetailCard movieId={movieId}/>
+      <MovieDetail movieId={movieId}/>
      
     </div>
   )

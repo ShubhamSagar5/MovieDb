@@ -6,7 +6,7 @@ const paginationSlice = createSlice({
     name:'pagination',
     initialState:{
         page:1,
-        totalPage:3
+        totalPage:3,
     },
     reducers:{
         nextPage:(state,action) => {
@@ -21,9 +21,13 @@ const paginationSlice = createSlice({
         },
         setPage:(state,action) => {
             state.page = action.payload
+        },
+        setTotalPage:(state,action) => {
+            state.totalPage = action.payload
         }
+       
     }
 })
 
-export const {nextPage,prevPage,setPage} = paginationSlice.actions 
+export const {nextPage,prevPage,setPage,setTotalPage} = paginationSlice.actions 
 export default paginationSlice.reducer
