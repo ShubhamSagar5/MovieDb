@@ -5,8 +5,8 @@ import Home from './pages/Home'
 import PopularMovie from './pages/PopularMovie'
 import TopRatedMovie from './pages/TopRatedMovie'
 import UpcomingMovie from './pages/UpcomingMovie'
-import SingleMovie from './pages/SingleMovie'
 import SearchMovie from './pages/SearchMovie'
+import SingleMovieDetail from './pages/SingleMovieDetail'
 
 
 
@@ -28,7 +28,7 @@ const appRouter = createBrowserRouter([{
     },
     {
       path:"/detail/:movieId",
-      element:<SingleMovie/>
+      element:<SingleMovieDetail/>
     },
     {
       path:"/search",

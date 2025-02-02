@@ -18,8 +18,8 @@ const useFetchData = (movieAPI,movieCategory) => {
             const data = await res.json() 
 
             //update react-store 
-
-            switch(movieCategory){
+            if(data?.results){
+              switch(movieCategory){
                 case "popular" :
                     dispatch(addPopularMovie(data?.results))
                 break;
@@ -31,7 +31,11 @@ const useFetchData = (movieAPI,movieCategory) => {
                 break;
                 default:
                 break;
+            }  
+            }else{
+                throw new Error('No Data found')
             }
+            
 
 
         } catch (error) {
