@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setSearchMovieName } from '../store/MovieSlice'
 import { useNavigate } from 'react-router-dom'
 
@@ -7,19 +7,24 @@ const Searchbar = () => {
   
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const [searchText,setSearchText] = useState('')
+  const searchText = useSelector((store)=>store?.movie?.searchMovieName)
+
+  const [localSearchText,setLocalSearchText] = useState(searchText)
 
   const handleSearch = () => {
-    if(searchText?.length > 0){
-      dispatch(setSearchMovieName(searchText))
+    if(localSearchText?.length > 0){
+      dispatch(setSearchMovieName(localSearchText))
       navigate("/search")
+    }else{
+      dispatch(setSearchMovieName(''))
+      navigate("/")
     }
    
   }
 
   return (
-    <div >
-        <input className='border border-white py-[0.4rem] px-[0.2rem] rounded-sm bg-white text-black focus:outline-none' type="text" value={searchText} name="searchText" id="" onChange={(e)=>setSearchText(e.target.value)} placeholder='Movie Name . . . .'/>
+    <div className='p-2'>
+        <input className='border border-white py-[0.4rem] px-[0.2rem] rounded-sm bg-white text-black focus:outline-none' type="text" value={localSearchText} name="searchText" id="" onChange={(e)=>setLocalSearchText(e.target.value)} placeholder='Movie Name . . . .'/>
         <button className='ml-[1rem] bg-[#2E2E2E] py-[0.4rem] px-[0.8rem] rounded-sm cursor-pointer' onClick={handleSearch}>Search</button>
     </div>
   )

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { getSearchResultAPI } from "../api/MovieAPI"
 import { setLoading } from "../store/UiSlice"
-import { addsearchMovie } from "../store/MovieSlice"
+import { addsearchMovie, setSearchMovieName } from "../store/MovieSlice"
 import { useEffect } from "react"
 
 
