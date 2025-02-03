@@ -9,12 +9,13 @@ const Searchbar = () => {
   const navigate = useNavigate()
   const searchText = useSelector((store)=>store?.movie?.searchMovieName)
 
-  const [localSearchText,setLocalSearchText] = useState(searchText)
+  const [localSearchText,setLocalSearchText] = useState('')
 
   const handleSearch = () => {
     if(localSearchText?.length > 0){
       dispatch(setSearchMovieName(localSearchText))
       navigate("/search")
+      setLocalSearchText('')
     }else{
       dispatch(setSearchMovieName(''))
       navigate("/")
