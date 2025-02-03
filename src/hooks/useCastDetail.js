@@ -6,8 +6,10 @@ import { setLoading } from '../store/UiSlice'
 
 
 const useCastDetail = () => {
- const dispatch = useDispatch()
- dispatch(setLoading(true))
+ 
+   const dispatch = useDispatch()
+ 
+   dispatch(setLoading(true))
     const castCardData = useSelector((store)=>store?.detailMovie?.castData?.cast)
     const {page,totalPage} = useSelector((store)=>store?.pagination)
   

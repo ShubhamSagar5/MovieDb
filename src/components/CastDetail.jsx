@@ -26,7 +26,7 @@ const CastDetail = () => {
   <div className='flex flex-wrap'>
      {finalData?.map((actor) => {
     return (
-      <div key={actor?.id} className="w-full sm:w-6/12 md:w-4/12 lg:w-2/12 p-2 mt-[2rem]">
+      <div key={actor?.id} className="w-6/12 sm:w-6/12 md:w-4/12 lg:w-2/12 p-2 mt-[2rem]">
         <CastCard name={actor?.name} profile={actor?.profile_path} character={actor?.character}/>
       </div>
     );

@@ -7,4 +7,5 @@ export const getUpcomingMovieAPI = `https://api.themoviedb.org/3/movie/upcoming?
 export const topRatedMovieAPI = `https://api.themoviedb.org/3/movie/top_rated?api_key=${Api_key}&language=en-US` 
 
 
-export const movieDetailBaseAPI = `https://api.themoviedb.org/3/movie/`
+export const movieDetailBaseAPI = `https://api.themoviedb.org/3/movie/` 
+export const getSearchResultAPI = `https://api.themoviedb.org/3/search/movie?api_key=${Api_key}&language=en-US&`

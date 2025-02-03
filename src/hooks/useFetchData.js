@@ -33,7 +33,7 @@ const useFetchData = (movieAPI,movieCategory) => {
                 break;
             }  
             }else{
-                throw new Error('No Data found')
+                console.log('No Data found')
             }
             
 
